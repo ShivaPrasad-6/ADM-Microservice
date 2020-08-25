@@ -31,18 +31,20 @@ public class CartService {
 			Double totalprice = cart.getQty()*cart.getItem().getPrice();
 			cart.getItem().setTotalPrice(totalprice);
 		}
-		totalprizecount = totalprizecount + cart.getItem().getTotalPrice(); 
-		qtycount = qtycount + cart.getQty(); 
+		//totalprizecount = totalprizecount + cart.getItem().getTotalPrice(); 
+		//qtycount = qtycount + cart.getQty(); 
 		noofvarieties++;
 		cartDao.save(cart);
 		return cart;
 	}
 	
 	public Double Totalprice() {
+		cartDao.findAll().stream().forEach(x -> totalprizecount += x.getItem().getTotalPrice());
 		return totalprizecount;
 	}
 	
 	public int Totalqty() {
+		cartDao.findAll().stream().forEach(x -> qtycount += x.getQty());
 		return qtycount;
 	}
 	

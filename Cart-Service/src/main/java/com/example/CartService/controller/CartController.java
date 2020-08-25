@@ -3,6 +3,7 @@ package com.example.CartService.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,8 +18,6 @@ import com.example.CartService.service.CartService;
 @RequestMapping("/api")
 public class CartController {
 	
-	
-
 	@Autowired
 	private CartService cartService;
 	
@@ -32,7 +31,7 @@ public class CartController {
 	}
 	
 	
-	@PostMapping("/carts")
+	@PostMapping("/cart/shiva")
 	public Cart saveCart(@RequestBody Cart cart) {
 		if(cart.getItem().getPrice() == null) {
 			Double price = priceFeign.findPriceByProductCatalog(cart.getItem().getId());
@@ -57,7 +56,7 @@ public class CartController {
 		return cartService.NoofVarieties();
 	}
 	
-	@GetMapping("/deletecart")
+	@DeleteMapping("/deletecart")
 	public void DeleteCart() {
 		cartService.Delete();
 	}
