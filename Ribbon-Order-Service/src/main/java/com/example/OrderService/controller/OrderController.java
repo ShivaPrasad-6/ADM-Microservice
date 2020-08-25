@@ -30,7 +30,7 @@ public class OrderController {
 	
 	
 	
-	@PostMapping("/orders")
+	@PostMapping("/orders/shiva")
 	public Order savepc(@RequestBody Order order) {
 		return orderService.save(order);
 	}

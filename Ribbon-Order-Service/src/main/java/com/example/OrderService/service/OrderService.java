@@ -22,6 +22,7 @@ public class OrderService {
 			order.setQuantity(cartFeign.Totalqty());
 			order.setNoofVarieties(cartFeign.NoofVarieties());
 		}
+		cartFeign.DeleteCart();
 		return odao.save(order);
 	}
 	

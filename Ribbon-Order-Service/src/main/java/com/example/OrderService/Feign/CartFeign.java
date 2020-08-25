@@ -1,6 +1,7 @@
 package com.example.OrderService.Feign;
 
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @FeignClient(value = "cart", url = "http://localhost:8083/api")
@@ -14,5 +15,8 @@ public interface CartFeign {
 	
 	@GetMapping("/noofVarieties")
 	public int NoofVarieties();
+	
+	@DeleteMapping("/deletecart")
+	public void DeleteCart();
 	
 }

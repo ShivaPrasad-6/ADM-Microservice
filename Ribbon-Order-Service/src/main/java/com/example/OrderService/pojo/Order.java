@@ -1,7 +1,5 @@
 package com.example.OrderService.pojo;
 
-import java.time.LocalDate;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -15,7 +13,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @Entity
-@Table(name= "order")
+@Table(name= "ordertable")
 public class Order {
 	
 	@Id
